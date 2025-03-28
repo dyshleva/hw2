@@ -30,7 +30,7 @@ def health_check():
     return {"status": "ok"}
 
 @app.get("/description")
-def get_recommandation(id: str):
+def get_description(id: str):
     movies = get_movies()
 
     max_id = [movie['id'] for movie in movies]
