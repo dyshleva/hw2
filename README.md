@@ -9,13 +9,13 @@ You can interact with app on address **http://127.0.0.1:8000**.
 
 ## USAGE (using CLI ```curl```)
 1. Run app
-![run app](./img/run.png)
+![run app](run.png)
 2. Get all movies
-![movies](./img/read.png)
+![movies](read.png)
 3. Add new movie and check it existence
-![new mpovie](./img/write.png)
+![new mpovie](write.png)
 4. Get description for film with id = 3
-![mpvie desc](./img/desc.png)
+![mpvie desc](desc.png)
 
 ## REQUEST FLOW
 1. **/movies/read**: user -> client -> db -> cliebt -> user
