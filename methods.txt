@@ -1,0 +1,12 @@
+curl -X GET "localhost:8000/movies/read" \
+    -H "Authorization: Bearer krutyitoken" \
+    -H "Content-Type: application/json"
+
+curl -X POST localhost:8000/movies/write \
+    -H "Authorization: Bearer krutyitoken" \
+    -H "Content-Type: application/json" \
+    -d '{"title": "Movie about dogs", "director": "Bark Barkinston"}'
+
+curl -X GET "localhost:8000/description?id=2" \
+    -H "Authorization: Bearer krutyitoken" \
+    -H "Content-Type: application/json"

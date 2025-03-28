@@ -1,0 +1,35 @@
+services:
+  db_service:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    networks:
+      - internal-network
+
+  business_service:
+    build:
+      context: .
+      dockerfile: Dockerfile.business
+    env_file:
+      - .business.env
+    networks:
+      - internal-network
+    depends_on:
+      - db_service
+
+  client_service:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    env_file:
+      - .client.env
+    ports:
+      - "8000:8000"
+    networks:
+      - internal-network
+    depends_on:
+      - db_service
+      - business_service
+
+networks:
+  internal-network:
