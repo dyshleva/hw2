@@ -25,11 +25,11 @@ def health_check():
     return {"status": "ok"}
 
 @app.get("/read")
-def read_db():
+def get_movies():
     return movie_db
 
 @app.post("/write", status_code=201)
-def write_db(movie: Movie):
+def post_movie(movie: Movie):
 
     if not all([movie.title, movie.director]):
         raise HTTPException(status_code=400, detail="You must provide all fields!")

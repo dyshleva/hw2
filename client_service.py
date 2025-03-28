@@ -12,7 +12,7 @@ class Movie(BaseModel):
 app = FastAPI()
 
 load_dotenv()
-AUTH_TOKEN = os.getenv("CLIENT_TOKEN")
+AUTH_TOKEN = os.getenv("AUTH_TOKEN")
 MOVIE_DB = "http://db_service:8000"
 BUSINESS_SERVICE = "http://business_service:8000"
 
@@ -35,7 +35,7 @@ def get_movies(authorization: str = Header(None)):
     checker_health = requests.get(url=f"{MOVIE_DB}/health")
 
     if checker_health.json()["status"] == "ok":
-        
+
         movies = requests.get(url=f"{MOVIE_DB}/read")
         return movies.json()
     else:

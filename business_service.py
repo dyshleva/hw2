@@ -8,7 +8,7 @@ load_dotenv()
 
 app = FastAPI()
 
-API_TOKEN =  os.getenv("API_KEY")
+API_KEY =  os.getenv("API_KEY")
 MOVIE_DB = "http://db_service:8000"
 
 def get_movies():
@@ -41,7 +41,7 @@ def get_description(id: str):
     response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": f"Bearer {API_TOKEN}",
+            "Authorization": f"Bearer {API_KEY}",
             "Content-Type": "application/json"
         },
         data=json.dumps({
